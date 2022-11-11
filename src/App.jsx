@@ -1,17 +1,9 @@
-import React from "react"
-import { useAuthState } from "react-firebase-hooks/auth"
-import PageLoading from "./components/feedback/PageLoading"
-
-import { auth } from "./configs/firebase"
-import SplashPage from "./containers/splashPage/SplashPage"
+import React, { useState } from "react"
+import { RouterProvider } from "react-router-dom"
+import Routes from "./containers/app/Routes"
 
 function App() {
-	const [user, loading, error] = useAuthState(auth)
-
-	if (loading) {
-		return <PageLoading open handleClose={() => {}} />
-	}
-	return <SplashPage />
+	return <RouterProvider router={Routes} />
 }
 
 export default App
